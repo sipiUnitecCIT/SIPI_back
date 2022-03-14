@@ -1,21 +1,12 @@
 const express = require("express")
-const pool = require("./libs/postgres")
+const routerApi = require("./routes")
+const config = require("./config/config")
 
 const app = express()
 
-const PORT = 3000
+const PORT = config.port;
 
-app.get("/", async (request, response) => {
-  try {
-    const dbResponse = await pool.query("SELECT * FROM public.teams")
-    response.json({
-      teams: dbResponse.rows
-    })
-
-  } catch (error) {
-    response.json({ error })
-  }
-})
+routerApi(app)
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
