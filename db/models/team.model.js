@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes,  Model } = require("sequelize");
+const { Sequelize, DataTypes, Model } = require("sequelize");
 
 const TEAM_TABLE = "teams";
 
@@ -21,11 +21,11 @@ const TeamSchema = {
     allowNull: true,
     type: DataTypes.BLOB,
   },
-  description:{
+  description: {
     allowNull: true,
     type: DataTypes.STRING
   },
-  createdAt:{
+  createdAt: {
     allowNull: false,
     field: "created_at",
     type: DataTypes.DATE,
@@ -33,13 +33,13 @@ const TeamSchema = {
   }
 }
 
-class Team extends Model{
-  static associate(){
-    
+class Team extends Model {
+  static associate() {
+
   }
-  
-  static config(sequelize){
-    return{
+
+  static config(sequelize) {
+    return {
       sequelize,
       tableName: TEAM_TABLE,
       modelName: "Team",
