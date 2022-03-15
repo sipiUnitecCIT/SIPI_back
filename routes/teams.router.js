@@ -8,7 +8,7 @@ const service = new TeamsService();
 router.get("/", async (request, response) => {
   try {
     
-    const teams = await service.find()
+    const teams = await service.findAll()
     
     response.json({
       teams,

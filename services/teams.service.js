@@ -1,14 +1,12 @@
-const pool = require("../libs/postgres")
+const {models} = require("../libs/postgres")
+
+const { Team } = models;
 
 class TeamsService {
-  constructor(){
-    this.pool = pool
-  }
-  
-  async find(){
-    const query = "SELECT * FROM public.teams"
-    const response = await this.pool.query(query)
-    return response.rows;
+
+  async findAll(){
+    const [data] = await Team.findAll()
+    return data;
   }
   
   async findOne(){
