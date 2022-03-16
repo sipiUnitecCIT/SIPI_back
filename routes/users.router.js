@@ -4,12 +4,16 @@ const service = new UsersService()
 const router = express.Router()
 
 router.get("/", async (request, response)=>{
-  
-  const users = await service.findAll()
-  
-  response.json({
-    users
-  })
+  try {
+    const users = await service.findAll()
+    
+    response.json({
+      users
+    })
+    
+  } catch (error) {
+    next(error)    
+  }
 })
 
 module.exports = router;

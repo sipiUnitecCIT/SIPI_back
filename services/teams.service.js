@@ -9,8 +9,13 @@ class TeamsService {
     return data;
   }
   
-  async findOne(){
-    // Code
+  async findOne(id){
+    const [data] = await Team.findByPk(id)
+    return data;
+  }
+  
+  async create(){
+    
   }
   
   async update(){
