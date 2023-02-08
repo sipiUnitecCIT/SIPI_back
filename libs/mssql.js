@@ -9,7 +9,11 @@ const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
   // port: dbPort,
   dialect: "mssql",
   dialectModule: tedious,
-  // logging: true,
+  options: {
+    // Your tedious options here
+    useUTC: false,
+    dateFirst: 1
+  }
 })
 
 // sequelize.sync();

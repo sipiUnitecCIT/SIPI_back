@@ -5,7 +5,7 @@ const service = new UsersService()
 
 const router = express.Router()
 
-router.get("/", async (request, response) => {
+router.get("/", async (request, response, next) => {
   try {
     
     const students = await service.findAll()
