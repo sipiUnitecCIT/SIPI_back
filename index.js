@@ -24,7 +24,7 @@ app.use(express.json())
 
 app.get("/", (request, response) => {
   response.json({
-    message: "Hello Prof. Fernando 😎. Let me introduce you 'The SIPI API Rest', deployed from VERCEL! 💚"
+    message: "Hello World 😎!. Let me introduce you all 'The SIPI API Rest', deployed from VERCEL! 💚"
   })
 })
 
