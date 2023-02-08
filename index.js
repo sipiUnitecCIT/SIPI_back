@@ -7,6 +7,7 @@ const app = express()
 
 const PORT = config.port;
 
+app.use(cors())
 app.use(express.json())
 
 // const whiteList = [`http://localhost:${PORT}`]
@@ -21,10 +22,13 @@ app.use(express.json())
 //   }  
 // }
 
-app.use(cors())
+app.get("/", (request, response) => {
+  response.json({
+    message: "Hello World! 💚"
+  })
+})
 
 routerApi(app)
-
 
 //No cambiar el orden de los middlewares
 app.use(logErrors)

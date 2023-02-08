@@ -1,10 +1,13 @@
-const { models } = require("../libs/postgres")
+// const sequelize = require("../libs/mssql");
+// const { models } = require("../libs/mssql")
 
-const { User } = models;
+
+// const { User } = models;
 
 class UsersService {
   async findAll() {
-    const [data] = await User.findAll()
+    // sequelize.query("SELECT * FROM ")
+    // const [data] = await User.findAll()
     return data;
   }
 

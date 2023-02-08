@@ -1,28 +1,27 @@
-const {models} = require("../libs/postgres")
+const { models } = require("../libs/mssql")
 
-const { Team } = models;
 
 class TeamsService {
 
-  async findAll(){
-    const [data] = await Team.findAll()
-    return data;
+  async findAll() {
+    // const [data] = await Team.findAll()
+    // return data;
   }
-  
-  async findOne(id){
-    const [data] = await Team.findByPk(id)
-    return data;
+
+  async findOne(id) {
+    // const [data] = await Team.findByPk(id)
+    // return data;
   }
-  
-  async create(){
-    
+
+  async create() {
+
   }
-  
-  async update(){
+
+  async update() {
     // Code
   }
-  
-  async delete(){
+
+  async delete() {
     // Code
   }
 }

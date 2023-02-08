@@ -1,6 +1,6 @@
 const express = require("express");
-const pool = require("../libs/postgres");
 const { validationHandler } = require("../middlewares/validation.handler");
+
 const { createTeamSchema } = require("../schemas/team.schema");
 const TeamsService = require("../services/teams.service")
 
@@ -9,10 +9,10 @@ const service = new TeamsService();
 
 router.get("/", async (request, response, next) => {
   try {
-    const teams = await service.findAll()
+    // const teams = await service.findAll()
 
     response.json({
-      teams,
+      // teams,
       greeting: "hello world!",
     })
 
