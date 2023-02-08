@@ -24,7 +24,7 @@ app.use(express.json())
 
 app.get("/", (request, response) => {
   response.json({
-    message: "Hello World! 💚"
+    message: "Hello World from VERCEL! 💚"
   })
 })
 
