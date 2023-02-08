@@ -1,14 +1,16 @@
 const express = require("express");
 
-const teamsRouter = require("./teams.router")
-const usersRouter = require("./users.router")
+const usersRouter = require("./users.router");
+const teamsRouter = require("./teams.router");
+const careersRouter = require("./careers.router");
 
 const router = express.Router();
 
 function routerApi(app){
   app.use("/api", router)
-  router.use("/teams", teamsRouter)
   router.use("/users", usersRouter)
+  router.use("/teams", teamsRouter)
+  router.use("/careers", careersRouter)
 }
 
 module.exports = routerApi;

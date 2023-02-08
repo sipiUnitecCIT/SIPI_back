@@ -1,11 +1,11 @@
-const { models } = require("../libs/mssql")
-
+const sequelize = require("../libs/mssql");
 
 class TeamsService {
 
   async findAll() {
     // const [data] = await Team.findAll()
-    // return data;
+    const [data, length] = await sequelize.query("SELECT * FROM dbo.tbl_equipo")
+    return {data, length};
   }
 
   async findOne(id) {

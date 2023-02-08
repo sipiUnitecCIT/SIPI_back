@@ -1,15 +1,15 @@
 const express = require("express")
-const UsersService = require("../services/users.service")
+const CareersService = require("../services/careers.service")
 
-const service = new UsersService()
+const service = new CareersService()
 
 const router = express.Router()
 
 router.get("/", async (request, response) => {
   try {
     
-    const students = await service.findAll()
-    response.json({ ...students })
+    const careers = await service.findAll()
+    response.json({ ...careers })
 
   } catch (error) {
     next(error)

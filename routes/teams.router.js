@@ -9,12 +9,9 @@ const service = new TeamsService();
 
 router.get("/", async (request, response, next) => {
   try {
-    // const teams = await service.findAll()
-
-    response.json({
-      // teams,
-      greeting: "hello world!",
-    })
+    
+    const teams = await service.findAll()
+    response.json({ ...teams })
 
   } catch (error) {
     next(error)
@@ -25,10 +22,10 @@ router.post("/",
   validationHandler(createTeamSchema, "body"),
   async (request, response, next) => {
     try {
-      
+
       const team = await service.create(request.body)
       response.status(201).json(team)
-      
+
     } catch (error) {
       next(error)
     }
