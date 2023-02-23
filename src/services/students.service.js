@@ -1,7 +1,4 @@
 const sequelize = require("../libs/mssql");
-// const { models } = require("../libs/mssql")
-
-// const { User } = models;
 
 class StudentsService {
   async findAll() {

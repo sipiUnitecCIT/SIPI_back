@@ -2,7 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const routerApi = require("./routes")
 const config = require("./config/config")
-const { logErrors, boomErrorHandler, errorHandler } = require("./middlewares/error.handler")
+const { logErrors, errorHandler } = require("./middlewares/error.handler")
 const app = express()
 
 const PORT = config.port;
@@ -32,7 +32,6 @@ routerApi(app)
 
 //No cambiar el orden de los middlewares
 app.use(logErrors)
-app.use(boomErrorHandler)
 app.use(errorHandler)
 
 app.listen(PORT, () => {

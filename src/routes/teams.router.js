@@ -1,7 +1,4 @@
 const express = require("express");
-const { validationHandler } = require("../middlewares/validation.handler");
-
-const { createTeamSchema } = require("../schemas/team.schema");
 const TeamsService = require("../services/teams.service")
 
 const router = express.Router();
@@ -18,19 +15,18 @@ router.get("/", async (request, response, next) => {
   }
 })
 
-router.post("/",
-  validationHandler(createTeamSchema, "body"),
-  async (request, response, next) => {
-    try {
+// router.post("/",
+//   async (request, response, next) => {
+//     try {
 
-      const team = await service.create(request.body)
-      response.status(201).json(team)
+//       const team = await service.create(request.body)
+//       response.status(201).json(team)
 
-    } catch (error) {
-      next(error)
-    }
-  }
-)
+//     } catch (error) {
+//       next(error)
+//     }
+//   }
+// )
 
 
 
