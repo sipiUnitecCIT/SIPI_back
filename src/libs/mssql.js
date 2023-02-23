@@ -1,5 +1,5 @@
 const { Sequelize } = require("sequelize")
-const config = require("../config/config");
+const config = require("../config");
 const tedious = require("tedious")
 
 const { dbUser, dbPassword, dbHost, dbPort, dbName } = config

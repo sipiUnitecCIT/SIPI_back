@@ -1,7 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const routerApi = require("./routes")
-const config = require("./config/config")
+const config = require("./config")
 const { logErrors, errorHandler } = require("./middlewares/error.handler")
 const app = express()
 
@@ -35,5 +35,5 @@ app.use(logErrors)
 app.use(errorHandler)
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+  console.log(`Server is listening on http://localhost:${PORT}`);
 })

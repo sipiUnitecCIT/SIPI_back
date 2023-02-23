@@ -40,7 +40,6 @@ function httpErrorHandler(error, request, response, next) {
 
 function errorHandler(error, request, response, next) {
   console.log("Error")
-  console.error(error)
 
   const httpError = createHttpError.InternalServerError()
   const { name, statusCode, message } = httpError
