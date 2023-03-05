@@ -1,9 +1,48 @@
+const crypto = require("crypto");
+const createHttpError = require("http-errors");
 const sequelize = require("../libs/mssql");
 
+const { Info } = sequelize.models
+
 class InfoService {
+
   async getAll() {
-    const [data, length] = await sequelize.query("SELECT * FROM dbo.tbl_informacion")
-    return { data, length };
+    const info = await Info.findAll()
+    console.log("INFO =", info)
+    return {
+      data: info,
+      length: info.length,
+    };
+  }
+
+  async findOne(id){
+    const infoItem = await Info.findByPk(id)
+    
+    if(infoItem){
+      return infoItem;
+    }else{
+      throw new createHttpError.NotFound()
+    }
+  }
+  
+  async create(info) {
+    const newInfo = await Info.create({
+      ...info,
+      id_informacion: crypto.randomUUID(),
+    })
+    return newInfo;
+  }
+  
+  async update(id, changes){
+    const info = await this.findOne(id)
+    const modifiedInfo = await info.update(changes)
+    return modifiedInfo;
+  }
+  
+  async delete(id){
+    const infoItem = await this.findOne(id)
+    await infoItem.destroy()
+    return id;
   }
 }
 

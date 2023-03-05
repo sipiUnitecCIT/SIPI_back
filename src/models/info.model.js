@@ -1,7 +1,8 @@
-const { Model, DataTypes, Sequelize } = require("sequelize/types");
-const { extensions } = require("sequelize/types/utils/validator-extras");
+const { Model, DataTypes, Sequelize } = require("sequelize")
+const { INFO_TYPE_TABLE } = require("./infoType.model");
+const { PERSON_TABLE } = require("./person.model");
 
-const INFO_TABLE = "dbo.tbl_informacion"
+const INFO_TABLE = "tbl_informacion"
 
 const InfoSchema = {
   id_informacion: {
@@ -11,18 +12,29 @@ const InfoSchema = {
   },
   id_informacionTipo: {
     allowNull: false,
-    primaryKey: true,
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
+    // unique: true,
+    references: {
+      model: INFO_TYPE_TABLE,
+      key: "id_informacionTipo"
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
   },
   informacion_idPublicador: {
     allowNull: false,
-    primaryKey: true,
     type: DataTypes.STRING,
+    references: {
+      model: PERSON_TABLE,
+      key: "id_persona"
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
   },
-  
-  
-  id_equipo:{
-    allowNull: false,
+
+
+  id_equipo: {
+    allowNull: true,
     type: DataTypes.INTEGER,
   },
   informacion_fechaPublicacion: {
@@ -36,7 +48,7 @@ const InfoSchema = {
   },
   informacion_titulo: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING, // THIS MUST BE STRING
   },
   informacion_cuerpo: {
     allowNull: false,
@@ -45,6 +57,15 @@ const InfoSchema = {
 }
 
 class Info extends Model {
+  static associate(models) {
+    // this.belongsTo(models.InfoType, { as: "infoType" })
+    // this.belongsTo(models.Person, { as: "person" })
+    // this.hasOne(models.InfoConfirmed, {
+    //   as: "infoConfirmed",
+    //   foreignKey: "id_informacion"
+    // })
+  }
+
   static config(sequelize) {
     return {
       sequelize,

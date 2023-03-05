@@ -1,6 +1,6 @@
-const { Model, Sequelize, DataTypes } = require("sequelize/types");
+const { Model, Sequelize, DataTypes } = require("sequelize");
 
-const INFO_TYPE_TABLE = "dbo.tbl_informacionTipo"
+const INFO_TYPE_TABLE = "tbl_informacionTipo"
 
 const InfoTypeSchema = {
   id_informacionTipo: {
@@ -23,6 +23,13 @@ const InfoTypeSchema = {
 }
 
 class InfoType extends Model {
+  static associate(models) {
+    // this.hasMany(models.Info, { 
+    //   as: "info",
+    //   foreignKey: "id_informacionTipo",
+    // })
+  }
+
   static config(sequelize) {
     return {
       sequelize,

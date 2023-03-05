@@ -1,6 +1,6 @@
-const { Model, DataTypes, Sequelize } = require("sequelize/types");
+const { Model, DataTypes, Sequelize } = require("sequelize");
 
-const PERSON_TABLE = "dbo.tbl_persona"
+const PERSON_TABLE = "tbl_persona"
 
 const PersonSchema = {
   id_persona: {
@@ -47,11 +47,22 @@ const PersonSchema = {
 }
 
 class Person extends Model {
+  static associate(models){
+    // this.hasMany(models.Info, {
+    //   as: "info",
+    //   foreignKey: "informacion_idPublicador"
+    // })
+    // this.hasMany(models.InfoConfirmed, {
+    //   as: "infoConfirmed",
+    //   foreignKey: "id_persona"
+    // })
+  }
+  
   static config(sequelize) {
     return {
       sequelize,
       tableName: PERSON_TABLE,
-      modelName: "PERSON",
+      modelName: "Person",
       timestamps: false,
     }
   }

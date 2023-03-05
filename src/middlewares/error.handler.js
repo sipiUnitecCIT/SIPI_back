@@ -3,7 +3,9 @@ const { ZodError } = require("zod")
 
 function logErrors(error, request, response, next) {
   console.log("logErrors")
-  console.log(error)
+  console.log("")
+  console.error(error)
+  console.log("")
   next(error)
 }
 

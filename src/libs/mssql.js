@@ -1,6 +1,7 @@
 const { Sequelize } = require("sequelize")
 const config = require("../config");
-const tedious = require("tedious")
+const tedious = require("tedious");
+const setupModels = require("../models");
 
 const { dbUser, dbPassword, dbHost, dbPort, dbName } = config
 
@@ -16,6 +17,6 @@ const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
   }
 })
 
-// sequelize.sync();
+setupModels(sequelize)
 
 module.exports = sequelize;
