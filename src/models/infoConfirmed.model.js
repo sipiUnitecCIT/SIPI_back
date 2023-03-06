@@ -4,7 +4,7 @@ const { PERSON_TABLE } = require("./person.model")
 
 const INFO_CONFIRMED_TABLE = "tbl_informacionConfirmada"
 
-const InfoConfirmedSchema = {
+const InfoConfirmedModel = {
   id_informacionConfirmada: {
     allowNull: false,
     primaryKey: true,
@@ -59,4 +59,4 @@ class InfoConfirmed extends Model {
   }
 }
 
-module.exports = { InfoConfirmed, InfoConfirmedSchema, INFO_CONFIRMED_TABLE }
+module.exports = { InfoConfirmed, InfoConfirmedModel, INFO_CONFIRMED_TABLE }

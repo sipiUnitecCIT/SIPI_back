@@ -1,6 +1,6 @@
-const crypto = require("crypto");
 const createHttpError = require("http-errors");
 const sequelize = require("../libs/mssql");
+const crypto = require("crypto");
 
 const { Info } = sequelize.models
 
@@ -8,7 +8,6 @@ class InfoService {
 
   async getAll() {
     const info = await Info.findAll()
-    console.log("INFO =", info)
     return {
       data: info,
       length: info.length,

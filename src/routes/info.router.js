@@ -1,5 +1,5 @@
 const express = require("express");
-const { InfoSchema, CreateInfoSchema, UpdateInfoSchema, InfoSchemaId } = require("../schemas/info.schema");
+const { CreateInfoSchema, UpdateInfoSchema, InfoSchemaId } = require("../schemas/info.schema");
 const { SUCCESSFUL_STATUS } = require("../utils/statusCodes");
 
 const InfoService = require("../services/info.service");
@@ -7,7 +7,7 @@ const InfoService = require("../services/info.service");
 const router = express.Router()
 const service = new InfoService()
 
-const { CREATED, OK } = SUCCESSFUL_STATUS
+const { CREATED } = SUCCESSFUL_STATUS
 
 router.get("/", async (request, response, next) => {
   try {

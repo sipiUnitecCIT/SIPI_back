@@ -2,7 +2,7 @@ const { Model, Sequelize, DataTypes } = require("sequelize");
 
 const INFO_TYPE_TABLE = "tbl_informacionTipo"
 
-const InfoTypeSchema = {
+const InfoTypeModel = {
   id_informacionTipo: {
     primaryKey: true,
     allowNull: false,
@@ -40,4 +40,4 @@ class InfoType extends Model {
   }
 }
 
-module.exports = { InfoType, INFO_TYPE_TABLE, InfoTypeSchema }
+module.exports = { InfoType, INFO_TYPE_TABLE, InfoTypeModel }

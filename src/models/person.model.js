@@ -2,7 +2,7 @@ const { Model, DataTypes, Sequelize } = require("sequelize");
 
 const PERSON_TABLE = "tbl_persona"
 
-const PersonSchema = {
+const PersonModel = {
   id_persona: {
     allowNull: false,
     primaryKey: true,
@@ -68,4 +68,4 @@ class Person extends Model {
   }
 }
 
-module.exports = { Person, PersonSchema, PERSON_TABLE }
+module.exports = { Person, PersonModel, PERSON_TABLE }

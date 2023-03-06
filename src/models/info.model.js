@@ -4,7 +4,7 @@ const { PERSON_TABLE } = require("./person.model");
 
 const INFO_TABLE = "tbl_informacion"
 
-const InfoSchema = {
+const InfoModel = {
   id_informacion: {
     allowNull: false,
     primaryKey: true,
@@ -76,4 +76,4 @@ class Info extends Model {
   }
 }
 
-module.exports = { InfoSchema, Info, INFO_TABLE }
+module.exports = { InfoModel, Info, INFO_TABLE }
