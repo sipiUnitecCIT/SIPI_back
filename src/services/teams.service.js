@@ -1,28 +1,26 @@
+const createHttpError = require("http-errors");
 const sequelize = require("../libs/mssql");
+
+const { Teams } = sequelize.models
 
 class TeamsService {
 
   async findAll() {
-    // const [data] = await Team.findAll()
-    const [data, length] = await sequelize.query("SELECT * FROM dbo.tbl_equipo")
-    return {data, length};
+    const teams = await Teams.findAll()
+    return {
+      data: teams,
+      length: teams.length,
+    };
   }
 
   async findOne(id) {
-    // const [data] = await Team.findByPk(id)
-    // return data;
-  }
-
-  async create() {
-
-  }
-
-  async update() {
-    // Code
-  }
-
-  async delete() {
-    // Code
+    const team = await Teams.findByPk(id)
+    
+    if(team){
+      return team;
+    }else{
+      throw new createHttpError.NotFound()
+    }
   }
 }
 
