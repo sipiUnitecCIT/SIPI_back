@@ -11,7 +11,6 @@ app.use(cors())
 app.use(express.json())
 
 // const whiteList = [`http://localhost:${PORT}`]
-
 // const options = {
 //   origin: (origin, callback)=>{
 //     if(whiteList.includes(origin)){
