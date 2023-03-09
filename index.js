@@ -1,8 +1,8 @@
 const express = require("express")
 const cors = require("cors")
-const routerApi = require("./routes")
-const config = require("./config")
-const { logErrors, zodErrorHandler, httpErrorHandler, errorHandler } = require("./middlewares/error.handler")
+const routerApi = require("./src/routes")
+const config = require("./src/config")
+const { logErrors, zodErrorHandler, httpErrorHandler, errorHandler } = require("./src/middlewares/error.handler")
 const app = express()
 
 const PORT = config.port;
