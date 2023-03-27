@@ -2,7 +2,7 @@ const createHttpError = require("http-errors");
 const sequelize = require("../libs/mssql");
 const crypto = require("crypto");
 
-const { Info } = sequelize.models
+const { Info, InfoType } = sequelize.models
 
 class InfoService {
 
@@ -14,6 +14,11 @@ class InfoService {
     };
   }
 
+  getAllTypes = async () =>{
+    const infoTypes = await InfoType.findAll()
+    return infoTypes;
+  }
+  
   async findOne(id){
     const infoItem = await Info.findByPk(id)
     

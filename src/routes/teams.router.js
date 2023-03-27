@@ -29,6 +29,18 @@ router.get("/:id", async (request, response, next) => {
   }
 })
 
+router.get("/:id/members", async (request, response, next) => {
+  try {
+    
+    const validatedId = TeamIdSchema.parse(parseInt(request.params.id))
+    const teamMembers = await service.findMembers(validatedId)
+    response.json(teamMembers)
+
+  } catch (error) {
+    next(error)
+  }
+})
+
 
 
 module.exports = router;

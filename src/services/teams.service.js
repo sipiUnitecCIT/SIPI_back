@@ -1,7 +1,7 @@
 const createHttpError = require("http-errors");
 const sequelize = require("../libs/mssql");
 
-const { Teams } = sequelize.models
+const { Teams, Person } = sequelize.models
 
 class TeamsService {
 
@@ -15,12 +15,35 @@ class TeamsService {
 
   async findOne(id) {
     const team = await Teams.findByPk(id)
-    
-    if(team){
+
+    if (team) {
       return team;
-    }else{
+    } else {
       throw new createHttpError.NotFound()
     }
+  }
+
+  async findMembers(id) {
+
+    const [equipoMiembros, length] = await sequelize.query(`SELECT * FROM dbo.tbl_equipoMiembro WHERE id_equipo = ${id}`)
+
+    const personList = await Person.findAll()
+
+    const teamMembers = equipoMiembros.map(member => {
+      
+      const teamMemberInfo = personList.find(person => 
+        member.id_persona === person.id_persona  
+      )
+      
+      const teamMember = {
+        ...member,
+        persona: teamMemberInfo,
+      }
+      
+      return teamMember;
+    })
+
+    return { data: teamMembers, length };
   }
 }
 

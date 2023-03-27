@@ -20,6 +20,17 @@ router.get("/", async (request, response, next) => {
   }
 })
 
+router.get("/types", async (request, response, next)=>{
+  try {
+    
+    const infoTypes = await service.getAllTypes()
+    response.json(infoTypes)
+    
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.get("/:id", async (request, response, next) => {
   try {
 

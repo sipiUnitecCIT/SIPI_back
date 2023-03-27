@@ -24,11 +24,11 @@ const TeamModel = {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  equipò_correo: {
+  equipo_correo: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  equipo_whatapp: {
+  equipo_whatsApp: {
     allowNull: false,
     type: DataTypes.STRING,
   },
