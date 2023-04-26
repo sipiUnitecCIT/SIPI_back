@@ -14,11 +14,11 @@ const getCalendarInfo = (calendarInfo) => {
   }
 }
 
-export const getCalendarLinks = (info) => {
+export const getCalendarLinks = (info, infoType) => {
   const { informacion_titulo, informacion_fechaPublicacion, informacion_fechaExpiracion } = info
 
   const calendarInfo = getCalendarInfo({
-    title: informacion_titulo,
+    title: `${infoType} - ${informacion_titulo}`,
     start: informacion_fechaPublicacion,
     end: informacion_fechaExpiracion,
   })
