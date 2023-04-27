@@ -1,8 +1,8 @@
-const { DataTypes, Model } = require("sequelize");
+import { DataTypes, Model } from "sequelize"
 
-const CAREER_TABLE = "tbl_carrera";
+export const CAREER_TABLE = "tbl_carrera";
 
-const CareerModel = {
+export const CareerModel = {
   id_carrera: {
     allowNull: false,
     primaryKey: true,
@@ -22,7 +22,7 @@ const CareerModel = {
   },
 }
 
-class Career extends Model {
+export class Career extends Model {
   static config(sequelize) {
     return {
       sequelize,
@@ -32,5 +32,3 @@ class Career extends Model {
     }
   }
 }
-
-module.exports = { Career, CareerModel, CAREER_TABLE }

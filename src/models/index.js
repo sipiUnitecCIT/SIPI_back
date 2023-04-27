@@ -1,10 +1,10 @@
-const { Career, CareerModel } = require("./career.model");
-const { Person, PersonModel } = require("./person.model");
-const { Info, InfoModel } = require("./info.model");
-const { InfoType, InfoTypeModel } = require("./infoType.model");
-const { InfoConfirmed, InfoConfirmedModel } = require("./infoConfirmed.model");
-const { Team, TeamModel } = require("./team.model");
-const { TeamMember, TeamMemberModel } = require("./teamMembers.model");
+import { Career, CareerModel } from "./career.model"
+import { Person, PersonModel } from "./person.model"
+import { Info, InfoModel } from "./info.model"
+import { InfoType, InfoTypeModel } from "./infoType.model"
+import { InfoConfirmed, InfoConfirmedModel } from "./infoConfirmed.model"
+import { Team, TeamModel } from "./team.model"
+import { TeamMember, TeamMemberModel } from "./teamMembers.model"
 
 function setupModels(sequelize) {
   
@@ -23,4 +23,4 @@ function setupModels(sequelize) {
   // InfoConfirmed.associate(sequelize.models)
 }
 
-module.exports = setupModels;
+export default setupModels;

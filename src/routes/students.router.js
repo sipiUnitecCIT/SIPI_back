@@ -1,12 +1,12 @@
-const express = require("express")
-const StudentsService = require("../services/students.service")
+import express from "express"
+import StudentsService from "../services/students.service"
 
 const router = express.Router()
 const service = new StudentsService()
 
 router.get("/", async (request, response, next) => {
   try {
-    
+
     const students = await service.findAll()
     response.json({ ...students })
 
@@ -15,4 +15,4 @@ router.get("/", async (request, response, next) => {
   }
 })
 
-module.exports = router;
+export default router;

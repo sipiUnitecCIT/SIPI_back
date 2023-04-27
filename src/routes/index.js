@@ -1,10 +1,10 @@
-const express = require("express");
+import express from "express"
 
-const studentsRouter = require("./students.router");
-const teamsRouter = require("./teams.router");
-const careersRouter = require("./careers.router");
-const infoRouter = require("./info.router");
-const personRouter = require("./person.router")
+import studentsRouter from "./students.router"
+import teamsRouter from "./teams.router"
+import careersRouter from "./careers.router"
+import infoRouter from "./info.router"
+import personRouter from "./person.router"
 
 const router = express.Router();
 
@@ -17,4 +17,4 @@ function routerApi(app){
   router.use("/person", personRouter)
 }
 
-module.exports = routerApi;
+export default routerApi;

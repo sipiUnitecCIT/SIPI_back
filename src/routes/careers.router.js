@@ -1,5 +1,5 @@
-const express = require("express")
-const CareersService = require("../services/careers.service")
+import express from "express"
+import CareersService from "../services/careers.service"
 
 const service = new CareersService()
 
@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.get("/", async (request, response, next) => {
   try {
-    
+
     const careers = await service.findAll()
     response.json({ ...careers })
 
@@ -16,4 +16,4 @@ router.get("/", async (request, response, next) => {
   }
 })
 
-module.exports = router;
+export default router;

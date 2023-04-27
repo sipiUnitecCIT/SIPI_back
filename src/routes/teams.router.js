@@ -1,7 +1,7 @@
-const express = require("express");
-const { TeamIdSchema } = require("../schemas/teams.schema");
-const TeamsService = require("../services/teams.service");
-const { SUCCESSFUL_STATUS } = require("../utils/statusCodes");
+import express from "express"
+import { TeamIdSchema } from "../schemas/teams.schema"
+import TeamsService from "../services/teams.service"
+import { SUCCESSFUL_STATUS } from "../utils/statusCodes"
 
 const router = express.Router();
 const service = new TeamsService();
@@ -41,6 +41,4 @@ router.get("/:id/members", async (request, response, next) => {
   }
 })
 
-
-
-module.exports = router;
+export default router;

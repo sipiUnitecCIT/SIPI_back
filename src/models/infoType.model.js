@@ -1,8 +1,8 @@
-const { Model, Sequelize, DataTypes } = require("sequelize");
+import { Model, Sequelize, DataTypes } from "sequelize"
 
-const INFO_TYPE_TABLE = "tbl_informacionTipo"
+export const INFO_TYPE_TABLE = "tbl_informacionTipo"
 
-const InfoTypeModel = {
+export const InfoTypeModel = {
   id_informacionTipo: {
     primaryKey: true,
     allowNull: false,
@@ -22,7 +22,7 @@ const InfoTypeModel = {
   },
 }
 
-class InfoType extends Model {
+export class InfoType extends Model {
   static associate(models) {
     // this.hasMany(models.Info, { 
     //   as: "info",
@@ -39,5 +39,3 @@ class InfoType extends Model {
     }
   }
 }
-
-module.exports = { InfoType, INFO_TYPE_TABLE, InfoTypeModel }

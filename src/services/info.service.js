@@ -1,7 +1,7 @@
-const createHttpError = require("http-errors");
-const sequelize = require("../libs/mssql");
-const crypto = require("crypto");
-const { getCalendarLinks } = require("../utils/ICalendar");
+import createHttpError from "http-errors"
+import sequelize from "../libs/mssql"
+import crypto from "crypto"
+import { getInfoCalendarLinks } from "../utils/ICalendar"
 
 const { Info, InfoType } = sequelize.models
 
@@ -32,18 +32,17 @@ class InfoService {
 
   async findType(id) {
     const infoType = await InfoType.findByPk(id)
-    if(infoType){
+    if (infoType) {
       return infoType;
-    }else{
+    } else {
       throw new createHttpError.NotFound(`InfoType ${id} doesn't exist!`)
     }
   }
 
   async create(info) {
-    
-    const infoType = await this.findType(info.id_informacionTipo)
-    getCalendarLinks(info, infoType.informacionTipo_nombre)
 
+    const calendarLinks = await getInfoCalendarLinks(info)
+    
     const newInfo = await Info.create({
       ...info,
       id_informacion: crypto.randomUUID(),
@@ -54,10 +53,9 @@ class InfoService {
 
   async update(id, changes) {
     const info = await this.findOne(id)
-    
-    const infoType = await this.findType(info.id_informacionTipo)
-    getCalendarLinks(info, infoType.informacionTipo_nombre)
-    
+
+    const calendarLinks = await getInfoCalendarLinks(info)
+
     const modifiedInfo = await info.update(changes)
     return modifiedInfo;
   }
@@ -69,4 +67,4 @@ class InfoService {
   }
 }
 
-module.exports = InfoService;
+export default InfoService;

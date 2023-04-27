@@ -1,7 +1,7 @@
-const { Sequelize } = require("sequelize")
-const config = require("../config");
-const tedious = require("tedious");
-const setupModels = require("../models");
+import { Sequelize } from "sequelize"
+import config from "../config"
+import tedious from "tedious"
+import setupModels from "../models"
 
 const { dbUser, dbPassword, dbHost, dbPort, dbName } = config
 
@@ -19,4 +19,4 @@ const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
 
 setupModels(sequelize)
 
-module.exports = sequelize;
+export default sequelize;

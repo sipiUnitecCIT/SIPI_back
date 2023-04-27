@@ -1,5 +1,5 @@
-const createHttpError = require("http-errors");
-const sequelize = require("../libs/mssql");
+import createHttpError from "http-errors"
+import sequelize  from "../libs/mssql"
 
 const { Teams, Person } = sequelize.models
 
@@ -22,7 +22,7 @@ class TeamsService {
       throw new createHttpError.NotFound()
     }
   }
-
+  
   async findMembers(id) {
 
     const [equipoMiembros, length] = await sequelize.query(`SELECT * FROM dbo.tbl_equipoMiembro WHERE id_equipo = ${id}`)
@@ -47,4 +47,4 @@ class TeamsService {
   }
 }
 
-module.exports = TeamsService;
+export default TeamsService;

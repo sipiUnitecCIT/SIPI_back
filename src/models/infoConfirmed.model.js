@@ -1,10 +1,10 @@
-const { Model, DataTypes, Sequelize } = require("sequelize")
-const { INFO_TABLE } = require("./info.model")
-const { PERSON_TABLE } = require("./person.model")
+import { Model, DataTypes, Sequelize } from "sequelize"
+import { INFO_TABLE } from "./info.model"
+import { PERSON_TABLE } from "./person.model"
 
-const INFO_CONFIRMED_TABLE = "tbl_informacionConfirmada"
+export const INFO_CONFIRMED_TABLE = "tbl_informacionConfirmada"
 
-const InfoConfirmedModel = {
+export const InfoConfirmedModel = {
   id_informacionConfirmada: {
     allowNull: false,
     primaryKey: true,
@@ -42,8 +42,7 @@ const InfoConfirmedModel = {
     type: DataTypes.DATE,
   }
 }
-
-class InfoConfirmed extends Model {
+export class InfoConfirmed extends Model {
   static associate(models) {
     // this.belongsTo(models.Info, { as: "info" })
     // this.belongsTo(models.Person, { as: "person" })
@@ -58,5 +57,3 @@ class InfoConfirmed extends Model {
     }
   }
 }
-
-module.exports = { InfoConfirmed, InfoConfirmedModel, INFO_CONFIRMED_TABLE }

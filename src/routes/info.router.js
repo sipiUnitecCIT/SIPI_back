@@ -1,8 +1,8 @@
-const express = require("express");
-const { CreateInfoSchema, UpdateInfoSchema, InfoSchemaId } = require("../schemas/info.schema");
-const { SUCCESSFUL_STATUS } = require("../utils/statusCodes");
+import express from"express"
+import { CreateInfoSchema, UpdateInfoSchema, InfoSchemaId } from"../schemas/info.schema"
+import { SUCCESSFUL_STATUS } from"../utils/statusCodes"
 
-const InfoService = require("../services/info.service");
+import InfoService from "../services/info.service"
 
 const router = express.Router()
 const service = new InfoService()
@@ -33,7 +33,7 @@ router.get("/types", async (request, response, next)=>{
 
 router.get("/:id", async (request, response, next) => {
   try {
-
+    
     const validatedIdFormat = InfoSchemaId.parse(request.params.id)
     const info = await service.findOne(validatedIdFormat)
     response.json(info)
@@ -81,4 +81,4 @@ router.delete("/:id", async (request, response, next) => {
   }
 })
 
-module.exports = router;
+export default router;

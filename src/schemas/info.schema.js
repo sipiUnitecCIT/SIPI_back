@@ -1,4 +1,4 @@
-const { z } = require("zod");
+import { z } from "zod";
 
 const InfoSchema = z.object({
   id_informacion: z.string().uuid(),
@@ -16,4 +16,4 @@ const CreateInfoSchema = InfoSchema.omit({ id_informacion: true, informacion_fec
 const UpdateInfoSchema = CreateInfoSchema.partial()
 const InfoSchemaId = InfoSchema.shape.id_informacion
 
-module.exports = { InfoSchema, CreateInfoSchema, UpdateInfoSchema, InfoSchemaId }
+export { InfoSchema, CreateInfoSchema, UpdateInfoSchema, InfoSchemaId }

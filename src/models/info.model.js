@@ -1,10 +1,10 @@
-const { Model, DataTypes, Sequelize } = require("sequelize")
-const { INFO_TYPE_TABLE } = require("./infoType.model");
-const { PERSON_TABLE } = require("./person.model");
+import { Model, DataTypes, Sequelize } from "sequelize"
+import { INFO_TYPE_TABLE } from "./infoType.model"
+import { PERSON_TABLE } from "./person.model"
 
-const INFO_TABLE = "tbl_informacion"
+export const INFO_TABLE = "tbl_informacion"
 
-const InfoModel = {
+export const InfoModel = {
   id_informacion: {
     allowNull: false,
     primaryKey: true,
@@ -55,8 +55,7 @@ const InfoModel = {
     type: DataTypes.STRING,
   },
 }
-
-class Info extends Model {
+export class Info extends Model {
   static associate(models) {
     // this.belongsTo(models.InfoType, { as: "infoType" })
     // this.belongsTo(models.Person, { as: "person" })
@@ -75,5 +74,3 @@ class Info extends Model {
     }
   }
 }
-
-module.exports = { InfoModel, Info, INFO_TABLE }

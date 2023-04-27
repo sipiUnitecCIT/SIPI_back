@@ -1,8 +1,9 @@
-const express = require("express")
-const cors = require("cors")
-const routerApi = require("./src/routes")
-const config = require("./src/config")
-const { logErrors, zodErrorHandler, httpErrorHandler, errorHandler } = require("./src/middlewares/error.handler")
+import express from "express"
+import cors from "cors"
+import routerApi from "./routes"
+import config from "./config"
+import { logErrors, zodErrorHandler, httpErrorHandler, errorHandler } from "./middlewares/error.handler"
+
 const app = express()
 
 const PORT = config.port;

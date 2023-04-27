@@ -1,8 +1,8 @@
-const { Model, DataTypes } = require("sequelize");
+import { Model, DataTypes } from "sequelize"
 
-const TEAMS_TABLE = "tbl_equipo"
+export const TEAMS_TABLE = "tbl_equipo"
 
-const TeamModel = {
+export const TeamModel = {
   id_equipo: {
     allowNull: false,
     primaryKey: true,
@@ -37,8 +37,7 @@ const TeamModel = {
     type: DataTypes.STRING,
   },
 }
-
-class Team extends Model {
+export class Team extends Model {
   static config(sequelize) {
     return {
       sequelize,
@@ -48,5 +47,3 @@ class Team extends Model {
     }
   }
 }
-
-module.exports = { Team, TEAMS_TABLE, TeamModel }

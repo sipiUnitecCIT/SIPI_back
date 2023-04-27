@@ -1,4 +1,4 @@
-const { z } = require("zod");
+import { z } from "zod";
 
 const TeamSchema = z.object({
   id_equipo: z.number().int(),
@@ -13,4 +13,4 @@ const TeamSchema = z.object({
 
 const TeamIdSchema = TeamSchema.shape.id_equipo;
 
-module.exports = { TeamSchema, TeamIdSchema }
+export { TeamSchema, TeamIdSchema }

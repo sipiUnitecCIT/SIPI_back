@@ -1,8 +1,8 @@
-const { Model, DataTypes, Sequelize } = require("sequelize");
+import { Model, DataTypes, Sequelize } from "sequelize"
 
-const PERSON_TABLE = "tbl_persona"
+export const PERSON_TABLE = "tbl_persona"
 
-const PersonModel = {
+export const PersonModel = {
   id_persona: {
     allowNull: false,
     primaryKey: true,
@@ -45,8 +45,7 @@ const PersonModel = {
     type: Sequelize.NOW,
   },
 }
-
-class Person extends Model {
+export class Person extends Model {
   static associate(models){
     // this.hasMany(models.Info, {
     //   as: "info",
@@ -67,5 +66,3 @@ class Person extends Model {
     }
   }
 }
-
-module.exports = { Person, PersonModel, PERSON_TABLE }

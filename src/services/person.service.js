@@ -1,6 +1,6 @@
-const createHttpError = require("http-errors");
-const sequelize = require("../libs/mssql");
-const crypto = require("crypto")
+import createHttpError from "http-errors"
+import sequelize  from "../libs/mssql"
+import crypto from "crypto"
 
 const { Person } = sequelize.models
 
@@ -45,4 +45,4 @@ class PersonService {
   // }
 }
 
-module.exports = PersonService;
+export default PersonService;

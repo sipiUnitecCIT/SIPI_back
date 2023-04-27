@@ -1,8 +1,8 @@
-const { Model, DataTypes } = require("sequelize");
+import { Model, DataTypes } from "sequelize"
 
-const TEAM_MEMBER_TABLE = "equipoMiembro"
+export const TEAM_MEMBER_TABLE = "equipoMiembro"
 
-const TeamMemberModel = {
+export const TeamMemberModel = {
   id_equipoMiembro:{
     primary_key: true,
     allowNull: false,
@@ -29,8 +29,7 @@ const TeamMemberModel = {
     type: DataTypes.INTEGER,
   },
 }
-
-class TeamMember extends Model {
+export class TeamMember extends Model {
   static config (sequelize) {
     return {
       sequelize,
@@ -40,5 +39,3 @@ class TeamMember extends Model {
     }
   }
 }
-
-module.exports = { TeamMember, TeamMemberModel, TEAM_MEMBER_TABLE }

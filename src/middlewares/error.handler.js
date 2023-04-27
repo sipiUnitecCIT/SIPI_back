@@ -1,7 +1,7 @@
-const createHttpError = require("http-errors")
-const { ZodError } = require("zod")
+import createHttpError from "http-errors"
+import { ZodError } from "zod"
 
-function logErrors(error, request, response, next) {
+export function logErrors(error, request, response, next) {
   console.log("logErrors")
   console.log("")
   console.error(error)
@@ -9,7 +9,7 @@ function logErrors(error, request, response, next) {
   next(error)
 }
 
-function zodErrorHandler(error, request, response, next) {
+export function zodErrorHandler(error, request, response, next) {
   console.log("ZodError")
 
   if (error instanceof ZodError) {
@@ -26,7 +26,7 @@ function zodErrorHandler(error, request, response, next) {
   }
 }
 
-function httpErrorHandler(error, request, response, next) {
+export function httpErrorHandler(error, request, response, next) {
   console.log("HttpError")
 
   if (createHttpError.isHttpError(error)) {
@@ -40,7 +40,7 @@ function httpErrorHandler(error, request, response, next) {
   }
 }
 
-function errorHandler(error, request, response, next) {
+export function errorHandler(error, request, response, next) {
   console.log("Error")
 
   const httpError = createHttpError.InternalServerError()
@@ -50,5 +50,3 @@ function errorHandler(error, request, response, next) {
     name, statusCode, message
   })
 }
-
-module.exports = { logErrors, zodErrorHandler, httpErrorHandler, errorHandler }

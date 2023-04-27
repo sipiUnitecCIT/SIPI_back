@@ -1,4 +1,4 @@
-const { z } = require("zod")
+import { z } from "zod"
 
 const PersonSchema = z.object({
   id_persona: z.string(),
@@ -17,4 +17,4 @@ const CreatePersonSchema = PersonSchema.omit({ id_persona: true, persona_fechaCr
 const UpdatePersonSchema = CreatePersonSchema.partial()
 const PersonIdSchema = PersonSchema.shape.id_persona
 
-module.exports = { PersonIdSchema, CreatePersonSchema, UpdatePersonSchema };
+export { PersonIdSchema, CreatePersonSchema, UpdatePersonSchema };

@@ -1,4 +1,4 @@
-const sequelize = require("../libs/mssql");
+import sequelize  from "../libs/mssql"
 
 class StudentsService {
   async findAll() {
@@ -12,4 +12,4 @@ class StudentsService {
   }
 }
 
-module.exports = StudentsService;
+export default StudentsService;

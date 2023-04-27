@@ -1,4 +1,4 @@
-const { z } = require("zod");
+import { z } from "zod"
 
 const CareerSchema = z.object({
   id_carrera: z.string(),
@@ -7,4 +7,4 @@ const CareerSchema = z.object({
   carrera_siglas: z.string(),
 })
 
-module.exports = { CareerSchema }
+export default CareerSchema

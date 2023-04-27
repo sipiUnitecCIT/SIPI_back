@@ -1,8 +1,8 @@
-const express = require("express")
-const { PersonIdSchema, CreatePersonSchema, UpdatePersonSchema } = require("../schemas/person.schema")
-const { SUCCESSFUL_STATUS } = require("../utils/statusCodes")
+import express from "express"
+import { PersonIdSchema, CreatePersonSchema, UpdatePersonSchema } from "../schemas/person.schema"
+import { SUCCESSFUL_STATUS } from "../utils/statusCodes"
 
-const PersonService = require("../services/person.service")
+import PersonService from "../services/person.service"
 
 const router = express.Router()
 const service = new PersonService()
@@ -70,4 +70,4 @@ router.delete("/:id", async () => {
   }
 })
 
-module.exports = router;
+export default router;

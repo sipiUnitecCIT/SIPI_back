@@ -1,9 +1,15 @@
-import { ICalendar, GoogleCalendar, YahooCalendar, OutlookCalendar } from "datebook"
-import { getDateFrom } from "./parseDate/getValues.mjs";
+import { ICalendar, GoogleCalendar, YahooCalendar, OutlookCalendar } from "../../node_modules/datebook/dist/datebook.min.js"
+import { getDateFrom } from "./parseDate/getValues"
+import sequelize from "../libs/mssql"
+
+const { InfoType } = sequelize.models
 
 const getCalendarInfo = (calendarInfo) => {
   const { title, start, end } = calendarInfo
-
+  
+  console.log("start", start);
+  console.log("end", end);
+  
   return {
     title,
     description: `Invitación a taller "${title}".\n 
@@ -34,6 +40,15 @@ export const getCalendarLinks = (info, infoType) => {
     calendar_link_gmail: googleCalendar.render(),
     calendar_link_yahoo: yahooCalendar.render(),
   }
+
+  return calendarLinks;
+}
+
+export const getInfoCalendarLinks = async (info) => {
+  const { informacionTipo_nombre } = await InfoType.findByPk(info.id_informacionTipo)
+  const calendarLinks = getCalendarLinks(info, informacionTipo_nombre)
+
+  console.log("calendarLinks:", calendarLinks)
 
   return calendarLinks;
 }
