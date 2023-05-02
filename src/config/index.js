@@ -10,4 +10,17 @@ const config = {
   dbName: process.env.DB_NAME,
 }
 
+
+export const account_transport = {
+  service: "gmail",
+  auth: {
+    type: "OAuth2",
+    user: "sipiunitec@gmail.com",
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    refreshToken: process.env.REFRESH_TOKEN,
+    accessToken: "",
+  }
+}
+
 export default config;
