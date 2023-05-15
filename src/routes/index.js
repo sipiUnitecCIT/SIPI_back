@@ -5,6 +5,7 @@ import teamsRouter from "./teams.router"
 import careersRouter from "./careers.router"
 import infoRouter from "./info.router"
 import personRouter from "./person.router"
+import emailRouter from "./email.router"
 
 const router = express.Router();
 
@@ -15,6 +16,7 @@ function routerApi(app){
   router.use("/careers", careersRouter)
   router.use("/info", infoRouter)
   router.use("/person", personRouter)
+  router.use("/sendEmail", emailRouter)
 }
 
 export default routerApi;
