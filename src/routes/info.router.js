@@ -3,6 +3,7 @@ import { CreateInfoSchema, UpdateInfoSchema, InfoSchemaId } from"../schemas/info
 import { SUCCESSFUL_STATUS } from"../utils/statusCodes"
 
 import InfoService from "../services/info.service"
+import { z } from "zod"
 
 const router = express.Router()
 const service = new InfoService()
@@ -25,6 +26,18 @@ router.get("/types", async (request, response, next)=>{
     
     const infoTypes = await service.getAllTypes()
     response.json(infoTypes)
+    
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.get("/types/:id", async (request, response, next)=>{
+  try {
+    
+    const validatedIdFormat = z.number().parse(parseInt(request.params.id))
+    const infoType = await service.findType(validatedIdFormat)
+    response.json(infoType)
     
   } catch (error) {
     next(error)

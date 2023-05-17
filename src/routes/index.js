@@ -16,7 +16,7 @@ function routerApi(app){
   router.use("/careers", careersRouter)
   router.use("/info", infoRouter)
   router.use("/person", personRouter)
-  router.use("/sendEmail", emailRouter)
+  router.use("/email", emailRouter)
 }
 
 export default routerApi;

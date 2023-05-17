@@ -8,55 +8,51 @@ export const PersonModel = {
     primaryKey: true,
     type: DataTypes.STRING,
   },
-  persona_tipoIdentificacion:{
+  persona_tipoIdentificacion: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  persona_nacionalidad:{
+  persona_nacionalidad: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  persona_cedula:{
+  persona_cedula: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  persona_nombres:{
+  persona_nombres: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  persona_apellidos:{
+  persona_apellidos: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  persona_correo:{
+  persona_correo: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  persona_genero:{
+  persona_genero: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  persona_fechaNacimiento:{
+  persona_fechaNacimiento: {
     allowNull: false,
     type: DataTypes.DATE,
   },
-  persona_fechaCreacion:{
+  persona_fechaCreacion: {
     allowNull: false,
     type: Sequelize.NOW,
   },
 }
 export class Person extends Model {
-  static associate(models){
-    // this.hasMany(models.Info, {
-    //   as: "info",
-    //   foreignKey: "informacion_idPublicador"
-    // })
-    // this.hasMany(models.InfoConfirmed, {
-    //   as: "infoConfirmed",
-    //   foreignKey: "id_persona"
-    // })
-  }
-  
+  // static associate(models) {
+  //   this.hasOne(models.Students, {
+  //     as: "estudiante",
+  //     foreignKey: "id_persona"
+  //   })
+  // }
+
   static config(sequelize) {
     return {
       sequelize,
